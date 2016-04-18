@@ -154,7 +154,19 @@ public class panelPrincipal extends javax.swing.JFrame {
 
     private void rConfirmItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_rConfirmItemStateChanged
         if (this.rConfirm.isSelected()) {
-            JOptionPane.showConfirmDialog(rootPane, "Le esta gustand el curso Swing", "PRO:Practicas JAVA", JOptionPane.YES_NO_CANCEL_OPTION);
+            int opcion=JOptionPane.showConfirmDialog(rootPane, "Le esta gustand el curso Swing", "PRO:Practicas JAVA", JOptionPane.YES_NO_CANCEL_OPTION);
+            if(opcion==JOptionPane.YES_OPTION){
+                 JOptionPane.showMessageDialog(rootPane, "Muy bien, me alegro",null,JOptionPane.INFORMATION_MESSAGE);
+                
+            }
+            if(opcion==JOptionPane.NO_OPTION){
+                 JOptionPane.showMessageDialog(rootPane, "Intentaremos mejorar",null,JOptionPane.ERROR_MESSAGE);
+                
+            }
+            if(opcion==JOptionPane.CANCEL_OPTION){
+                 JOptionPane.showMessageDialog(rootPane, "Necesitamos una respuesta",null,JOptionPane.WARNING_MESSAGE);
+                
+            }
         }
     }//GEN-LAST:event_rConfirmItemStateChanged
 
@@ -172,10 +184,20 @@ public class panelPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_rInputItemStateChanged
 
     private void rOuputItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_rOuputItemStateChanged
-        int nombre;
+        int numero;
+        String nombre=null;
         if(this.rOuput.isSelected()){
-            nombre=JOptionPane.showOptionDialog(rootPane, "Da una valoracion del curso","PRO:Practicas JAVA", WIDTH, WIDTH, null, posibilidades,null);
-       }
+            numero=JOptionPane.showOptionDialog(rootPane, "Da una valoracion del curso","PRO:Practicas JAVA", WIDTH, WIDTH, null, posibilidades,null);           
+                switch(numero){
+                    case 0:nombre="Muy bueno";break;
+                    case 1:nombre="Bueno";  break;
+                    case 2:nombre="Malo";  break;
+                    case 3:nombre="Muy malo";  break;
+                
+                 
+             }
+                JOptionPane.showMessageDialog(rootPane, "Has Seleccionad " +nombre);
+        }
     }//GEN-LAST:event_rOuputItemStateChanged
 
     /**
